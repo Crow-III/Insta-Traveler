@@ -29,6 +29,7 @@ Insta-Traveler is a program that allows user to search a location. The page will
 <li>Placeholder</li>
 <li>Placeholder</li>
 <li>Placeholder</li>
-<li>Placeholder.</li>
-
+<li>Placeholder</li>
+<li>Placeholder</li>
+<!-- test -->
 </ul>
