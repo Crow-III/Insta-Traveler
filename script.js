@@ -1,19 +1,17 @@
 //Saving function
-function save() {
-    //Reads the value of the input boxes and saves it as a string
-    var newData = document.getElementById("input").value;
-    //Stores the string in an array
-    if(localStorage.getItem("city") == null) {
-        localStorage.setItem("city", "[]");
-    }
-    //Makes the new content a part of the array
-    var oldData = JSON.parse(localStorage.getItem("city"));
-    oldData.push(newData);
-    
-    localStorage.setItem("city", JSON.stringify(oldData));
+async function doAsyncTask() {
+    const url = ("http://api.weatherapi.com/v1/current.json?key=96c0061c3971402da99231815231304&q=" +
+      new URLSearchParams(city).toString()
+    );
+  
+    const result = await fetch(url).then(response => response.json());
+  
+    console.log('Fetched from: ' + url);
+    console.log(result);
+  }
+
+function search() {
+    var city = input.value();
 }
-    //This is the button  that calls upon the 'save' function. It awaits the loading of the page to run
-document.addEventListener('DOMContentLoaded', function() {
-    var button = document.getElementById('saveButton');
-    button.addEventListener('click', save);
-  });
+
+document.getElementById("searchButton").addEventListener("click", search);
