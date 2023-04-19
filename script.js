@@ -140,5 +140,4 @@ console.log(place5+" Overall Guest Rating "+rating5);
 
 });
 
-
 }, 3000);
