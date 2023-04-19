@@ -1,22 +1,3 @@
-<<<<<<< HEAD
-//Saving function
-async function doAsyncTask() {
-    const url = ("http://api.weatherapi.com/v1/current.json?key=96c0061c3971402da99231815231304&q=" +
-      new URLSearchParams(city).toString()
-    );
-  
-    const result = await fetch(url).then(response => response.json());
-  
-    console.log('Fetched from: ' + url);
-    console.log(result);
-  }
-
-function search() {
-    var city = input.value();
-}
-
-document.getElementById("searchButton").addEventListener("click", search);
-=======
 const weatherApiKey = "9daf7471c5f84d968a520146231304"; // Replace with your actual Weather API key
 const unsplashApiKey = "QylNPlf1q1ZEVXUKTBc1XTe_iytPyjIo1Wweq_zg4tQ"; // Replace with your actual Unsplash API access key
 const searchInput = document.querySelector("#search-input");
@@ -93,4 +74,71 @@ searchButton.addEventListener("click", () => {
 //     var button = document.getElementById('saveButton');
 //     button.addEventListener('click', save);
 //   });
->>>>>>> 695d08ef9097ebcf9c81a8cf503a6ad321e03961
+//Search Hotel
+
+var place = "test"; let rating = "test"; 
+let place2 = "test"; let rating2 = "test";
+let place3 = "test"; let rating3 = "test";
+let place4 = "test"; let rating4 = "test";
+let place5 = "test"; let rating5 = "test";
+let checkin = "2023-07-22";
+let checkout = "2023-07-25";
+
+//Change to change location
+let locationtext = "New York"; //query selector for location in search bar
+let locationurl = "https://priceline-com-provider.p.rapidapi.com/v1/hotels/locations?search_type=ALL&name="+locationtext
+
+//Search for location city ID
+const settings = {
+	"async": true,
+	"crossDomain": true,
+	"url": locationurl,
+	"method": "GET",
+	"headers": {
+		"X-RapidAPI-Key": "203e312f55mshe6922c290742301p1cbbccjsne29ed8a8992e",
+		"X-RapidAPI-Host": "priceline-com-provider.p.rapidapi.com"
+	}
+};
+$.ajax(settings).done(function (response) {
+	console.log(response);
+  placeid = response['0']['id'];
+});
+
+setTimeout(() => {  console.log(place); 
+let hotelurl = "https://priceline-com-provider.p.rapidapi.com/v1/hotels/search?location_id="+placeid+"&date_checkin="+checkin+"&sort_order=HDR&date_checkout="+checkout+"&rooms_number=1"
+
+//API Call for hotels near city stated in locationtext variable
+const hotels = {
+	"async": true,
+	"crossDomain": true,
+	"url": hotelurl,
+	"method": "GET",
+	"headers": {
+		"X-RapidAPI-Key": "203e312f55mshe6922c290742301p1cbbccjsne29ed8a8992e",
+		"X-RapidAPI-Host": "priceline-com-provider.p.rapidapi.com"
+	}
+};
+
+$.ajax(hotels).done(function (response) {
+	console.log(response);
+  console.log("5 Hotels near city: " + locationtext);
+  place = response['hotels']['1']['name'];
+  place2 = response['hotels']['2']['name'];
+  place3 = response['hotels']['3']['name'];
+  place4 = response['hotels']['4']['name'];
+  place5 = response['hotels']['5']['name'];
+  rating = response['hotels']['1']['overallGuestRating'];
+  rating2 = response['hotels']['2']['overallGuestRating'];
+  rating3 = response['hotels']['3']['overallGuestRating'];
+  rating4 = response['hotels']['4']['overallGuestRating'];
+  rating5 = response['hotels']['5']['overallGuestRating'];
+console.log(place+" Overall Guest Rating "+rating);
+console.log(place2+" Overall Guest Rating "+rating2);
+console.log(place3+" Overall Guest Rating "+rating3);
+console.log(place4+" Overall Guest Rating "+rating4);
+console.log(place5+" Overall Guest Rating "+rating5);
+
+});
+
+
+}, 3000);
