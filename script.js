@@ -1,22 +1,3 @@
-<<<<<<< HEAD
-//Saving function
-async function doAsyncTask() {
-    const url = ("http://api.weatherapi.com/v1/current.json?key=96c0061c3971402da99231815231304&q=" +
-      new URLSearchParams(city).toString()
-    );
-  
-    const result = await fetch(url).then(response => response.json());
-  
-    console.log('Fetched from: ' + url);
-    console.log(result);
-  }
-
-function search() {
-    var city = input.value();
-}
-
-document.getElementById("searchButton").addEventListener("click", search);
-=======
 const weatherApiKey = "9daf7471c5f84d968a520146231304"; // Replace with your actual Weather API key
 const unsplashApiKey = "QylNPlf1q1ZEVXUKTBc1XTe_iytPyjIo1Wweq_zg4tQ"; // Replace with your actual Unsplash API access key
 const searchInput = document.querySelector("#search-input");
@@ -93,4 +74,3 @@ searchButton.addEventListener("click", () => {
 //     var button = document.getElementById('saveButton');
 //     button.addEventListener('click', save);
 //   });
->>>>>>> 695d08ef9097ebcf9c81a8cf503a6ad321e03961
