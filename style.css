@@ -6,24 +6,17 @@ body {
     align-items: flex-start;
     padding: 0px;
     position: relative;
-    height: 1024px;
-    background-image: linear-gradient(rgba(233, 233, 21, 0.11), rgba(189, 89, 8, 0.164)), url(/Images/pexels-bob-ward-3347244.jpg);
-    color: #fff;
-    background-size: cover;
-}
-
-.page-wrap {
-    height: 100%;
     width: 100%;
-    /* equal to footer height */
-    
+    height: auto;
+    background-image: linear-gradient(rgba(233, 233, 21, 0.11), rgba(189, 89, 8, 0.164)), url(Images/pexels-bob-ward-3347244.jpg);
+    color: #fff;
 }
 
-#options {
-    margin-bottom: 10%;
-    margin-top: 5%;
-}
+.hotelboxes{
+    padding-bottom: 20px !important;
+    margin-bottom: 5% !important;
 
+}
 .wrapperH {
     display: flex;
     flex-direction: row;
@@ -41,7 +34,7 @@ body {
 
 
 .wrapperH .detail {
-    justify-content: center;
+    justify-content: baseline;
 }
 
 section .wrapperH {
@@ -88,12 +81,8 @@ section .wrapperH {
     align-self: stretch;
     flex-grow: 1;
 }
-#divHome {
-    display: none;
-}
 
 #divResult {
-    /*display: none;*/
     gap: 0px;
     background-color: rgb(173, 154, 120);
     
@@ -121,6 +110,10 @@ section .wrapperH {
 #divResult h3 {
     height: auto;
     color: #35322ef9;
+}
+
+#divHome{
+    padding-bottom: 100px;
 }
 
 figure {
@@ -195,9 +188,8 @@ figure {
 }
 
 .wrapperV .info {
-    width: 100%;
+    width: 50%;
     height: 50%;
-    margin: 0px;
 }
 
 #divResult .wrapperV {
@@ -265,6 +257,7 @@ li .wrapperV {
     flex-grow: 1;
 }
 
+
 .column:last-child {
     color: #35322ef9;
     margin: 20px;
@@ -303,22 +296,14 @@ li .wrapperV {
     order: 2;
     flex-grow: 0;
 }
-
-.hotel {
-    display: none;
-}
-
 .footer {
     width: 100%;
-    background-color: #d2c094;
+    background-color: #D2C094;
     position: fixed;
     bottom: 0px;
-    height: 30px;
-    padding: 5px;
+    height: 20px;
+    padding: 22px;
 }
-
 .footer p {
-    color: #ffffff;
-    
+    color: #FFFFFF;
 }
-
