@@ -1,14 +1,18 @@
+
 body {
+
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
     position: relative;
     width: 100%;
+
     height: auto;
     background-image: linear-gradient(rgba(233, 233, 21, 0.11), rgba(189, 89, 8, 0.164)), url(/Images/pexels-bob-ward-3347244.jpg);
     color: #fff;
 }
+
 
 .wrapperH {
     display: flex;
@@ -18,15 +22,13 @@ body {
     gap: 45px;
     width: 100%;
     height: 350px;
-    
     background: #03032200;
-    
     /* Inside auto layout */
-    
     /*flex: none;
     order: 0;
     flex-grow: 0;*/
 }
+
 
 .wrapperH .detail {
     justify-content: center;
@@ -46,19 +48,16 @@ section .wrapperH {
     gap: 17.1px;
     font-size: 100px;
     font-family:Georgia, 'Times New Roman', Times, serif;
-        
     width: 75%;
     height: 260px;
-        
-    color: #fcc328;
-        
+    color: #FCC328;
         /* Inside auto layout */
-        
     flex: none;
     order: 1;
     align-self: stretch;
     flex-grow: 1;
 } 
+
 
 .header2 {
     display: flex;
@@ -70,11 +69,10 @@ section .wrapperH {
     font-family:Georgia, 'Times New Roman', Times, serif;
     margin: 0px 0px;
     width: auto;
-    height: auto; 
-    color: #fcc328;
-        
+
+    height: auto;
+    color: #FCC328;
         /* Inside auto layout */
-        
     flex: none;
     order: 1;
     align-self: stretch;
@@ -113,10 +111,10 @@ figure {
     padding: 0px 0px;
     width: 25%;
     height: 250px;
-    
+   
     /* Inside auto layout */
-    
     flex: none;
+
     order: 0;
     align-self: stretch;
     flex-grow: 0;
@@ -126,13 +124,12 @@ figure {
     display: flex;
     flex-direction: row;
     align-items: center;
+
     padding: 0px 0px;
     width: 100px;
     height: auto;
     margin: 0px 0px;
-    
     /* Inside auto layout */
-    
     flex: none;
     order: 0;
     align-self: stretch;
@@ -244,43 +241,33 @@ li .wrapperV {
 .wrapperH columns {
     margin: 10px 0px;
 }
-
 .submit1 {
     display: flex;
     flex-direction: row;
     align-items: center;
     padding: 18px 97px 18px 26px;
     gap: 10px;
-
     width: 428px;
     height: 85px;
     color: #fcc328;
-
     background: #35322ef9;
     border-radius: 74px;
-
 /* Inside auto layout */
-
     flex: none;
     order: 1;
     flex-grow: 0;
 }
-
 .button1{
     width: 177.87px;
     height: 60px;
     border-radius: 74px;
     background: #bc921e;
     color: #fffaed;
-    
-    
     /* Inside auto layout */
-    
     flex: none;
     order: 2;
     flex-grow: 0;
 }
-
 .footer {
     background-color: #35322ef9;
 }
