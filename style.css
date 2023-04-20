@@ -6,7 +6,7 @@
     position: relative;
     width: 100%;
     height: 1024px;
-    background-image: linear-gradient(rgba(233, 233, 21, 0.11), rgba(189, 89, 8, 0.164)), url(/Images/pexels-bob-ward-3347244.jpg);
+    background-image: linear-gradient(rgba(233, 233, 21, 0.11), rgba(189, 89, 8, 0.164)), url(./Images/pexels-bob-ward-3347244.jpg);
     color: #fff;
 }
 .wrapperH {
@@ -427,7 +427,6 @@ flex-grow: 0;
     order: 2;
     flex-grow: 0;
 }
-    }
     
     .resultsHeader2{
     display: flex;

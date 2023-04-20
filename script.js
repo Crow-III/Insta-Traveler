@@ -3,6 +3,7 @@ const unsplashApiKey = "QylNPlf1q1ZEVXUKTBc1XTe_iytPyjIo1Wweq_zg4tQ"; // Replace
 const searchInput = document.querySelector("#search-input");
 const searchButton = document.querySelector("#search-button");
 searchButton.addEventListener("click", () => {
+  setting();
   const city = searchInput.value;
   if (city.trim() === "") {
     alert("Please enter a valid city name!");
@@ -128,3 +129,16 @@ $.ajax(hotels).done(function (response) {
 });
 }, 3000);
 });
+
+
+function setting() {
+  // Get the element with class "columns"
+const columns = document.querySelector('.columns');
+
+// Find the h4 element within the first li element
+const h4Element = columns.querySelector('li:first-child h4');
+
+// Set the text of the h4 element
+h4Element.textContent = temperature.valueOf();
+
+}
