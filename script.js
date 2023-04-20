@@ -14,7 +14,7 @@ function search() {
     var city = input.value();
 }
 
-document.getElementById("searchButton").addEventListener("click", search);
+document.getElementById("search-button").addEventListener("click", search);
 const weatherApiKey = "9daf7471c5f84d968a520146231304"; // Replace with your actual Weather API key
 const unsplashApiKey = "QylNPlf1q1ZEVXUKTBc1XTe_iytPyjIo1Wweq_zg4tQ"; // Replace with your actual Unsplash API access key
 const searchInput = document.querySelector("#search-input");
@@ -40,10 +40,16 @@ searchButton.addEventListener("click", () => {
       const condition = weatherData.current.condition.text;
       const windSpeed = weatherData.current.wind_kph;
       const humidity = weatherData.current.humidity;
-      const weatherText = `Temperature: ${temperature} °C 
+      const weatherText = `Temperature: ${celsiusToFahrenheit(temperature)} °F 
         Condition: ${condition} 
         Wind Speed: ${windSpeed} kph 
         Humidity: ${humidity}%`;
+
+        function celsiusToFahrenheit(temperature) {
+          var fahrenheit = (temperature * 9/5) + 32;
+          return fahrenheit;
+        }
+        
 
       // Create HTML element to display weather information
       const weatherContainer = document.createElement("div");
