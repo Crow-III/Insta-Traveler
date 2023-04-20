@@ -5,6 +5,7 @@ const searchButton = document.querySelector("#search-button");
 // const searchInput2 = document.querySelector("#search-input2");
 // const searchButton2 = document.querySelector("#search-button2");
 const mainimg = document.getElementById("mainimg");
+
 // Hotel declared variables
 const hotel1 = document.querySelector("#hotel1");
 const hotel2 = document.querySelector("#hotel2");
@@ -27,7 +28,14 @@ const herobox = document.querySelector(".herobox");
 
 
 searchButton.addEventListener("click", () => {
+
   const city = searchInput.value;
+  const searchTerm = searchInput.value;
+
+  let searchTerms = JSON.parse(localStorage.getItem("searchTerms")) || [];
+  searchTerms.push(searchTerm);
+  localStorage.setItem("searchTerms", JSON.stringify(searchTerms));
+
   if (city.trim() === "") {
     alert("Please enter a valid city name!");
     return;
@@ -60,6 +68,7 @@ searchButton.addEventListener("click", () => {
             recentSearches.push(city);
             localStorage.setItem("recentSearches", JSON.stringify(recentSearches));
           }
+
         })
         .catch(error => {
           console.error(error);
@@ -144,7 +153,6 @@ $.ajax(hotels).done(function (response) {
   quality1.innerText = rating; quality2.innerText = rating2; quality3.innerText = rating3; quality4.innerText = rating4; quality5.innerText = rating5;
 });
 
-
 // $.ajax(hotels).done(function (response) {
 //   // Get the top 5 hotel names and ratings
 //   const hotelList = response['hotels'].slice(0, 5).map(hotel => {
@@ -157,3 +165,68 @@ $.ajax(hotels).done(function (response) {
 // });
 }, 3000);
 });
+function autocomplete(inp, searchTerms) {
+  var currentFocus;
+  inp.addEventListener("input", function(e) {
+    var a, b, i, val = this.value;
+    closeAllLists();
+    if (!val) { return false;}
+    currentFocus = -1;
+    a = document.createElement("DIV");
+    a.setAttribute("id", this.id + "autocomplete-list");
+    a.setAttribute("class", "autocomplete-items");
+    this.parentNode.appendChild(a);
+    for (i = 0; i < searchTerms.length; i++) {
+      if (searchTerms[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+        b = document.createElement("DIV");
+        b.innerHTML = "<strong>" + searchTerm[i].substr(0, val.length) + "</strong>";
+        b.innerHTML += searchTerms[i].substr(val.length);
+        b.innerHTML += "<input type='hidden' value='" + searchTerms[i] + "'>";
+        b.addEventListener("click", function(e) {
+          inp.value = this.getElementsByTagName("input")[0].value;
+          closeAllLists();
+        });
+        a.appendChild(b);
+      }
+    }
+  });
+  inp.addEventListener("keydown", function(e) {
+    var x = document.getElementById(this.id + "autocomplete-list");
+    if (x) x = x.getElementsByTagName("div");
+    if (e.keyCode == 40) {
+      currentFocus++;
+      addActive(x);
+    } else if (e.keyCode == 38) {
+      currentFocus--;
+      addActive(x);
+    } else if (e.keyCode == 13) {
+      e.preventDefault();
+      if (currentFocus > -1) {
+        if (x) x[currentFocus].click();
+      }
+    }
+  });
+  function addActive(x) {
+    if (!x) return false;
+    removeActive(x);
+    if (currentFocus >= x.length) currentFocus = 0;
+    if (currentFocus < 0) currentFocus = (x.length - 1);
+    x[currentFocus].classList.add("autocomplete-active");
+  }
+  function removeActive(x) {
+    for (var i = 0; i < x.length; i++) {
+      x[i].classList.remove("autocomplete-active");
+    }
+  }
+  function closeAllLists(elmnt) {
+    var x = document.getElementsByClassName("autocomplete-items");
+    for (var i = 0; i < x.length; i++) {
+      if (elmnt != x[i] && elmnt != inp) {
+        x[i].parentNode.removeChild(x[i]);
+      }
+    }
+  }
+  document.addEventListener("click", function (e) {
+    closeAllLists(e.target);
+  });
+}
