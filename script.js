@@ -55,26 +55,7 @@ searchButton.addEventListener("click", () => {
       console.error(error);
     });
 });
-// //Saving function
-// function save() {
-//     //Reads the value of the input boxes and saves it as a string
-//     var newData = document.getElementById("input").value;
-//     //Stores the string in an array
-//     if(localStorage.getItem("city") == null) {
-//         localStorage.setItem("city", "[]");
-//     }
-//     //Makes the new content a part of the array
-//     var oldData = JSON.parse(localStorage.getItem("city"));
-//     oldData.push(newData);
-    
-//     localStorage.setItem("city", JSON.stringify(oldData));
-// }
-//     //This is the button  that calls upon the 'save' function. It awaits the loading of the page to run
-// document.addEventListener('DOMContentLoaded', function() {
-//     var button = document.getElementById('saveButton');
-//     button.addEventListener('click', save);
-//   });
-//Search Hotel
+
 
 var place = "test"; let rating = "test"; 
 let place2 = "test"; let rating2 = "test";
@@ -83,24 +64,31 @@ let place4 = "test"; let rating4 = "test";
 let place5 = "test"; let rating5 = "test";
 let checkin = "2023-07-22";
 let checkout = "2023-07-25";
+let placeid = "test";
+// get the search bar element
+const searchBar = document.querySelector('#search-bar');
 
-//Change to change location
-let locationtext = "New York"; //query selector for location in search bar
-let locationurl = "https://priceline-com-provider.p.rapidapi.com/v1/hotels/locations?search_type=ALL&name="+locationtext
-
+// listen for input changes on the search bar
+searchButton.addEventListener('click', () => {
+  let usernames = document.getElementById("search-input").value;
+console.log(usernames);
+  // update the location text with the value of the search bar
+  locationtext = usernames;
+  
+  locationurl = "https://priceline-com-provider.p.rapidapi.com/v1/hotels/locations?search_type=ALL&name=" + locationtext;
 //Search for location city ID
 const settings = {
-	"async": true,
-	"crossDomain": true,
-	"url": locationurl,
-	"method": "GET",
-	"headers": {
-		"X-RapidAPI-Key": "203e312f55mshe6922c290742301p1cbbccjsne29ed8a8992e",
-		"X-RapidAPI-Host": "priceline-com-provider.p.rapidapi.com"
-	}
+  "async": true,
+  "crossDomain": true,
+  "url": locationurl,
+  "method": "GET",
+  "headers": {
+    "X-RapidAPI-Key": "203e312f55mshe6922c290742301p1cbbccjsne29ed8a8992e",
+    "X-RapidAPI-Host": "priceline-com-provider.p.rapidapi.com"
+  }
 };
 $.ajax(settings).done(function (response) {
-	console.log(response);
+  console.log(response);
   placeid = response['0']['id'];
 });
 
@@ -109,18 +97,18 @@ let hotelurl = "https://priceline-com-provider.p.rapidapi.com/v1/hotels/search?l
 
 //API Call for hotels near city stated in locationtext variable
 const hotels = {
-	"async": true,
-	"crossDomain": true,
-	"url": hotelurl,
-	"method": "GET",
-	"headers": {
-		"X-RapidAPI-Key": "203e312f55mshe6922c290742301p1cbbccjsne29ed8a8992e",
-		"X-RapidAPI-Host": "priceline-com-provider.p.rapidapi.com"
-	}
+  "async": true,
+  "crossDomain": true,
+  "url": hotelurl,
+  "method": "GET",
+  "headers": {
+    "X-RapidAPI-Key": "203e312f55mshe6922c290742301p1cbbccjsne29ed8a8992e",
+    "X-RapidAPI-Host": "priceline-com-provider.p.rapidapi.com"
+  }
 };
 
 $.ajax(hotels).done(function (response) {
-	console.log(response);
+  console.log(response);
   console.log("5 Hotels near city: " + locationtext);
   place = response['hotels']['1']['name'];
   place2 = response['hotels']['2']['name'];
@@ -139,5 +127,16 @@ $.ajax(hotels).done(function (response) {
   console.log(place5+" Overall Guest Rating "+rating5);
 
 });
+$.ajax(hotels).done(function (response) {
+  // Get the top 5 hotel names and ratings
+  const hotelList = response['hotels'].slice(0, 5).map(hotel => {
+    const name = hotel['name'];
+    const rating = hotel['overallGuestRating'];
+    return `${name} (Overall Guest Rating: ${rating})`;
+  });
+  // Append the hotel names and ratings to the HTML element
+  $('#hotel-list').append(`<ul><li>${hotelList.join('</li><li>')}</li></ul>`);
+});
 
 }, 3000);
+});
