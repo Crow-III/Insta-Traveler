@@ -10,9 +10,8 @@
 <a href="https://github.com/Crow-III/Insta-Traveler/graphs/contributors">
 <img src="https://contrib.rocks/image?repo=Crow-III/Insta-Traveler" />
 </a></p>
-
 <p align="center">
-  <img src="https://drive.google.com/uc?export=view&id=1nz0HmjJQL66jHcnYGCBtvRQjHeUDgYL"  title="Insta-Traveler">
+  <img src="https://drive.google.com/uc?export=view&id=1lcG0lKuHvQvBVNWxkDvf4RkklGEWbe87"  title="Insta-Traveler">
 </p>
 
 
