@@ -9,7 +9,7 @@ body {
     width: 100%;
 
     height: auto;
-    background-image: linear-gradient(rgba(233, 233, 21, 0.11), rgba(189, 89, 8, 0.164)), url(/Images/pexels-bob-ward-3347244.jpg);
+    background-image: linear-gradient(rgba(233, 233, 21, 0.11), rgba(189, 89, 8, 0.164)), url(Images/pexels-bob-ward-3347244.jpg);
     color: #fff;
 }
 
