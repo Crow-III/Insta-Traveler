@@ -1,4 +1,6 @@
-.body {
+
+body {
+
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -9,14 +11,13 @@
     background-image: linear-gradient(rgba(233, 233, 21, 0.11), rgba(189, 89, 8, 0.164)), url(./Images/pexels-bob-ward-3347244.jpg);
     color: #fff;
 }
-#hotelbox{
-    opacity: 1;
-}
+
 
 .autocomplete {
     position: relative;
     display: inline-block;
 }
+
 .wrapperH {
     display: flex;
     flex-direction: row;
@@ -31,10 +32,18 @@
     order: 0;
     flex-grow: 0;*/
 }
+
+
+.wrapperH .detail {
+    justify-content: center;
+}
+
 section .wrapperH {
     height: auto;
     padding: 5px 40px;
+    
 }
+
 .header1 {
     display: flex;
     flex-direction: row;
@@ -51,7 +60,9 @@ section .wrapperH {
     order: 1;
     align-self: stretch;
     flex-grow: 1;
-}
+} 
+
+
 .header2 {
     display: flex;
     flex-direction: row;
@@ -62,6 +73,7 @@ section .wrapperH {
     font-family:Georgia, 'Times New Roman', Times, serif;
     margin: 0px 0px;
     width: auto;
+
     height: auto;
     color: #FCC328;
         /* Inside auto layout */
@@ -70,26 +82,32 @@ section .wrapperH {
     align-self: stretch;
     flex-grow: 1;
 }
+
 #divResult {
     gap: 0px;
     background-color: rgb(173, 154, 120);
 }
+
 #divResult h3 {
     height: auto;
     color: #35322ef9;
 }
+
 figure {
     width: 100%;
     align-items: center;
     padding: 5%;
-    background-color: #35322e00;
+    background-color: #ffb3006b;
     display: flex;
     flex-direction: column;
 }
+
 .content h3 {
-    color: #F7E6AE;
+    color: #f7e6ae;
     align-items: center;
 }
+
+
 .img1 {
     display: flex;
     flex-direction: row;
@@ -97,16 +115,20 @@ figure {
     padding: 0px 0px;
     width: 25%;
     height: 250px;
+   
     /* Inside auto layout */
     flex: none;
+
     order: 0;
     align-self: stretch;
     flex-grow: 0;
     }
+    
 .img2 {
     display: flex;
     flex-direction: row;
     align-items: center;
+
     padding: 0px 0px;
     width: 100px;
     height: auto;
@@ -117,11 +139,13 @@ figure {
     align-self: stretch;
     flex-grow: 0;
 }
+
 .img3 {
     width: 50%;
     background-color: #03032200;
     padding: 20px 40px;
 }
+
 .wrapperV {
     display: flex;
     flex-direction: column;
@@ -130,72 +154,97 @@ figure {
     gap: 28px;
     width: 100%;
     height: auto;
+
+
 /* Inside auto layout */
+
     flex: none;
     order: 1;
     align-self: stretch;
     flex-grow: 0;
 }
+
+.wrapperV .info {
+    width: 50%;
+    height: 50%;
+}
+
 #divResult .wrapperV {
     display: block;
 }
-.h3 {
+
+h2 {
+    color: #fff;
+}
+
+h3 {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
     padding: 2%;
     gap: 10px;
-    color: #F7E6AE;
+    color: #f7e6ae;
     width: 100%;
     height: 88px;
     background: #fbfcd43a;
+
 /* Inside auto layout */
+
     flex: none;
     order: 0;
     align-self: stretch;
     flex-grow: 0;
 }
+
+h4 {
+    color: #35322ef9;
+}
+
+h5 {
+    margin: 10px 0px;
+}
+
 ul {
-/* wrapperH */
-/* Auto layout */
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 13px;
-    width: 634px;
-    height: 66.38px;
-    /* Inside auto layout */
-    flex: none;
-    order: 1;
-    flex-grow: 0;
 }
-ul {
-    display: inline;
-}
+
 li {
-    width: 150px;
-    color: chartreuse;
+
+    width: 100px;
     display: flex;
 }
+
 li .wrapperV {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     padding: 0px;
+
     width: 116.4px;
     height: 66.38px;
+
     background: #F1F1F1;
     border-radius: 6.27879px;
+
     /* Inside auto layout */
+
     flex: none;
     order: 0;
     flex-grow: 1;
 }
-.column {
-    color: red;
+
+.column:last-child {
+    color: #35322ef9;
+    margin: 20px;
+    border-color: dimgrey;
+    border-width: 2px;
+    border: #f7e6ae;
+}
+
+.wrapperH columns {
+    margin: 10px 0px;
 }
 .submit1 {
     display: flex;
@@ -205,7 +254,7 @@ li .wrapperV {
     gap: 10px;
     width: 428px;
     height: 85px;
-    color: #FCC328;
+    color: #fcc328;
     background: #35322ef9;
     border-radius: 74px;
 /* Inside auto layout */
@@ -217,10 +266,13 @@ li .wrapperV {
     width: 177.87px;
     height: 60px;
     border-radius: 74px;
-    background: #BC921E;
-    color: #FFFAED;
+    background: #bc921e;
+    color: #fffaed;
     /* Inside auto layout */
     flex: none;
     order: 2;
     flex-grow: 0;
+}
+.footer {
+    background-color: #35322ef9;
 }

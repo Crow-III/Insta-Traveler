@@ -3,8 +3,7 @@ const unsplashApiKey = "QylNPlf1q1ZEVXUKTBc1XTe_iytPyjIo1Wweq_zg4tQ"; // Replace
 const searchInput = document.querySelector("#search-input");
 const searchButton = document.querySelector("#search-button");
 const mainimg = document.getElementById("mainimg");
-const cityDropdown = document.getElementById("city-dropdown");
-const savedCity = [];
+
 // Hotel declared variables
 const hotel1 = document.querySelector("#hotel1");
 const hotel2 = document.querySelector("#hotel2");
@@ -22,7 +21,8 @@ const tempnum = document.querySelector("#tempnum")
 const condnum = document.querySelector("#condnum")
 
 
-searchButton.addEventListener("click",  () => {
+searchButton.addEventListener("click", () => {
+
   const city = searchInput.value;
   const searchTerm = searchInput.value;
 
@@ -34,13 +34,13 @@ searchButton.addEventListener("click",  () => {
     alert("Please enter a valid city name!");
     return;
   }
+
   // Fetch weather information using Weather API
   const weatherApiUrl = `https://api.weatherapi.com/v1/current.json?key=${weatherApiKey}&q=${city}`;
   fetch(weatherApiUrl)
     .then(response => response.json())
     .then(weatherData => {
       // Fill in search bar with city name
-
       windnum.innerText = weatherData.current.wind_mph;
       condnum.innerText = weatherData.current.condition.text;
       tempnum.innerText = weatherData.current.temp_c;
@@ -56,6 +56,13 @@ searchButton.addEventListener("click",  () => {
           console.log(image.src);
           mainimg.src = image.src;
 
+          // Save search query in local storage
+          const recentSearches = JSON.parse(localStorage.getItem("recentSearches")) || [];
+          if (!recentSearches.includes(city)) {
+            recentSearches.push(city);
+            localStorage.setItem("recentSearches", JSON.stringify(recentSearches));
+          }
+
         })
         .catch(error => {
           console.error(error);
@@ -66,6 +73,8 @@ searchButton.addEventListener("click",  () => {
       console.error(error);
     });
 });
+
+
 var place = "test"; let rating = "test";
 let place2 = "test"; let rating2 = "test";
 let place3 = "test"; let rating3 = "test";
@@ -133,6 +142,7 @@ $.ajax(hotels).done(function (response) {
   hotel1.innerText = place; hotel2.innerText = place2; hotel3.innerText = place3; hotel4.innerText = place4; hotel5.innerText = place5;
   quality1.innerText = rating; quality2.innerText = rating2; quality3.innerText = rating3; quality4.innerText = rating4; quality5.innerText = rating5;
 });
+
 // $.ajax(hotels).done(function (response) {
 //   // Get the top 5 hotel names and ratings
 //   const hotelList = response['hotels'].slice(0, 5).map(hotel => {
