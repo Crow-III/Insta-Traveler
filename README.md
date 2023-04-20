@@ -4,6 +4,13 @@
 <p align="center"><img alt="GitHub release (latest by date including pre-releases)" src="https://img.shields.io/github/v/release/Crow-III/Insta-Traveler?include_prereleases"> <img alt="GitHub closed issues" src="https://img.shields.io/github/issues-closed/Crow-III/Insta-Traveler"> <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/Crow-III/Insta-Traveler"></p>
 
 
+
+<h3 align="center">Contributors</h3>
+<p align="center">
+<a href="https://github.com/Crow-III/Insta-Traveler/graphs/contributors">
+<img src="https://contrib.rocks/image?repo=Crow-III/Insta-Traveler" />
+</a></p>
+
 <p align="center">
   <img src="https://drive.google.com/uc?export=view&id=1nz0HmjJQL66jHcnYGCBtvRQjHeUDgYL"  title="Insta-Traveler">
 </p>
