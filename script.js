@@ -1,5 +1,5 @@
-const weatherApiKey = "9daf7471c5f84d968a520146231304"; // Replace with your actual Weather API key
-const unsplashApiKey = "QylNPlf1q1ZEVXUKTBc1XTe_iytPyjIo1Wweq_zg4tQ"; // Replace with your actual Unsplash API access key
+const weatherApiKey = "9daf7471c5f84d968a520146231304"; 
+const unsplashApiKey = "QylNPlf1q1ZEVXUKTBc1XTe_iytPyjIo1Wweq_zg4tQ"; 
 const searchInput = document.querySelector("#search-input");
 const searchButton = document.querySelector("#search-button");
 const backButton = document.querySelector("#back-button");
