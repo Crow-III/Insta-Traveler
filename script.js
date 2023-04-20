@@ -85,7 +85,7 @@ let checkin = "2023-07-22";
 let checkout = "2023-07-25";
 
 //Change to change location
-let locationtext = "New York"; //query selector for location in search bar
+let locationtext = document.querySelector("#search-input").value; //query selector for location in search bar
 let locationurl = "https://priceline-com-provider.p.rapidapi.com/v1/hotels/locations?search_type=ALL&name="+locationtext
 
 //Search for location city ID
@@ -101,11 +101,11 @@ const settings = {
 };
 $.ajax(settings).done(function (response) {
 	console.log(response);
-  placeid = response['0']['id'];
+  let placeid = response['0']['id'];
 });
 
 setTimeout(() => {  console.log(place); 
-let hotelurl = "https://priceline-com-provider.p.rapidapi.com/v1/hotels/search?location_id="+placeid+"&date_checkin="+checkin+"&sort_order=HDR&date_checkout="+checkout+"&rooms_number=1"
+let hotelurl = "https://priceline-com-provider.p.rapidapi.com/v1/hotels/search?location_id="+ placeid +"&date_checkin="+checkin+"&sort_order=HDR&date_checkout="+checkout+"&rooms_number=1"
 
 //API Call for hotels near city stated in locationtext variable
 const hotels = {
