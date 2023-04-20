@@ -9,6 +9,10 @@
     background-image: linear-gradient(rgba(233, 233, 21, 0.11), rgba(189, 89, 8, 0.164)), url(/Images/pexels-bob-ward-3347244.jpg);
     color: #fff;
 }
+#hotelbox{
+    opacity: 1;
+}
+
 .wrapperH {
     display: flex;
     flex-direction: row;
@@ -167,7 +171,7 @@ ul {
     display: inline;
 }
 li {
-    width: 100px;
+    width: 150px;
     color: chartreuse;
     display: flex;
 }
