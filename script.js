@@ -152,4 +152,4 @@ $.ajax(hotels).done(function (response) {
   // Append the hotel names and ratings to the HTML element
   $('#hotel-list').append(`<ul><li>${hotelList.join('</li><li>')}</li></ul>`);
 });
-}, 3000);
+}, 3000);})
