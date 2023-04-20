@@ -2,6 +2,8 @@ const weatherApiKey = "9daf7471c5f84d968a520146231304"; // Replace with your act
 const unsplashApiKey = "QylNPlf1q1ZEVXUKTBc1XTe_iytPyjIo1Wweq_zg4tQ"; // Replace with your actual Unsplash API access key
 const searchInput = document.querySelector("#search-input");
 const searchButton = document.querySelector("#search-button");
+// const searchInput2 = document.querySelector("#search-input2");
+// const searchButton2 = document.querySelector("#search-button2");
 const mainimg = document.getElementById("mainimg");
 
 // Hotel declared variables
@@ -19,6 +21,10 @@ const quality5 = document.querySelector("#quality5");
 const windnum = document.querySelector("#windnum")
 const tempnum = document.querySelector("#tempnum")
 const condnum = document.querySelector("#condnum")
+
+const resultbox = document.querySelector(".resultbox");
+const searchbox = document.querySelector(".searchbox");
+const herobox = document.querySelector(".herobox");
 
 
 searchButton.addEventListener("click", () => {
@@ -43,7 +49,7 @@ searchButton.addEventListener("click", () => {
       // Fill in search bar with city name
       windnum.innerText = weatherData.current.wind_mph;
       condnum.innerText = weatherData.current.condition.text;
-      tempnum.innerText = weatherData.current.temp_c;
+      tempnum.innerText = weatherData.current.temp_f;
       searchInput.value = weatherData.location.name;
 
       const unsplashApiUrl = `https://api.unsplash.com/photos/random?query=${city}&client_id=${unsplashApiKey}`;
@@ -107,6 +113,10 @@ const settings = {
 $.ajax(settings).done(function (response) {
   console.log(response);
   placeid = response['0']['id'];
+  resultbox.classList.add("activeBox");
+  searchbox.classList.add("inactiveSearch");
+  herobox.classList.add("inactiveHero");
+
 });
 setTimeout(() => {  console.log(place);
 let hotelurl = "https://priceline-com-provider.p.rapidapi.com/v1/hotels/search?location_id="+placeid+"&date_checkin="+checkin+"&sort_order=HDR&date_checkout="+checkout+"&rooms_number=1"
