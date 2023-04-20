@@ -96,6 +96,26 @@ section .wrapperH {
     /*display: none;*/
     gap: 0px;
     background-color: rgb(173, 154, 120);
+    
+}
+
+.resultbox{
+    display: none !important;
+}
+
+.searchbox, .herobox{
+    display: flex !important;
+}
+
+.resultbox.activeBox{
+    display: flex !important;
+}
+
+.searchbox.inactiveSearch{
+    display: none !important;
+}
+.herobox.inactiveHero{
+    display: none !important;;
 }
 
 #divResult h3 {
@@ -301,3 +321,4 @@ li .wrapperV {
     color: #ffffff;
     
 }
+
