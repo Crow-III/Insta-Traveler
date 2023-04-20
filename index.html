@@ -14,89 +14,104 @@
     <title>Insta-Travler</title>
 </head>
 <body class="body">
-    <section class="wrapperH">
-        <img class="img1" src="/Images/logo.svg">
-<h1 class="header1">Insta-Travler</h1>
+    <div class="page-wrap">
+        <div id="divHome">
+            <section class="wrapperH">
+                <img class="img1" src="/Images/logo.svg">
+                <h1 class="header1">Insta-Travler</h1>
+            </section>
 
-    </section>
-    <section id="divHome" class="wrapperV , content">
-        <h3 class="h3">This website is designed to help you track the weather in some of your favorite states in the U.S.</h3>
-        <p class="$content-heading-warning">
-            Type and press search below to get started.
-        </p>
-        <input id="search-input" class="submit1" type="search" placeholder="Location">
-        <button id="search-button" class="button1 is-outlined" >Search</button>
-    </section>
-
-    <section id="divResult" class="wrapperV">
-        <div class="wrapperH">
-            <img class="img2" src="/Images/logo.svg">
-            <h2 class="header2">Insta-Travler</h2>
-            <input id="search-input" class="submit1" type="search" placeholder="Location">
-        <button id="search-button" class="button1 is-outlined" >Search</button>
+            <section class="wrapperV , content">
+                <h3 class="h3">This website is designed to help you track the weather in some of your favorite states in the U.S.</h3>
+                <p class="$content-heading-warning">
+                    Type and press search below to get started.
+                </p>
+                <input id="search-input" class="submit1" type="search" placeholder="Location">
+                <button id="search-button" class="button1 is-outlined" >Search</button>
+            </section>
         </div>
-        <h3 class="h3">This website is designed to help you track the weather in some of your favorite states in the U.S.</h3>
-        <div class="wrapperV">
-            <div class="wrapperV info">
-                <div class="wrapperH">
-                    <h4>Searched City Name</h4>
-                </div>
-                <div class="wrapperV">
-                    <div class="wrapperH detail">
-                        <ul>
-                            <li class="column">
-                                <img class="image" src="/Images/temp.svg">
-                                 <h4>Current Temp</h4>
-                                 <h2 id ='tempnum'>88</h2>
-                            </li>
-                            <li class="column">
-                                <img class="image" src="/Images/wind.svg">
-                                <h4>Conditions</h4>
-                                <h2 id ='condnum'>Windy</h2>
-                            </li>
-                            <li class="column">
-                                <img class="image" src="/Images/weather.svg">
-                                 <h4>Wind</h4>
-                                 <h2 id ='windnum'>100</h2>
-                            </li>
-                        </ul>
+        <section id="divResult" class="wrapperV">
+            <div class="wrapperH">
+                <img class="img2" src="/Images/logo.svg">
+                <h2 class="header2">Insta-Travler</h2>
+            <button class="button1 is-outlined">
+                Back
+            </button>
+            </div>
+            <h3 class="h3">This website is designed to help you track the weather in some of your favorite states in the U.S.</h3>
+            <div class="wrapperV">
+                <div class="wrapperV info">
+                    <div class="wrapperH">
+                        <h4>Searched City Name</h4>
+                    </div>
+                    <div class="wrapperV">
+                        <div class="wrapperH detail">
+                            <ul>
+                                <li class="column">
+                                    <img class="image" src="/Images/temp.svg">
+                                    <h4>Current Temp</h4>
+                                    <h2 id ='tempnum'>88</h2>
+                                </li>
+                                <li class="column">
+                                    <img class="image" src="/Images/wind.svg">
+                                    <h4>Conditions</h4>
+                                    <h2 id ='condnum'>Windy</h2>
+                                </li>
+                                <li class="column">
+                                    <img class="image" src="/Images/weather.svg">
+                                    <h4>Wind</h4>
+                                    <h2 id ='windnum'>100</h2>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <figure>
-                <img src="/Images/logo.svg" class="img3" id="mainimg">
-            </figure>
-            <h5>Hotels Near By</h5>
-            <div class="wrapperH columns">
-                <div class="column">
-                    <li id='hotel1' class="hotel1"></li>
-                    <li class="is-underlined">Satisfaction Rating:</li>
-                    <li id='quality1' class="quality1"></li>
-                </div>
-                <div class="column">
-                    <li id='hotel2' class="hotel2"></li>
-                    <li class="is-underlined">Satisfaction Rating:</li>
-                    <li id='quality2' class="quality2"></li>
-                </div>
-                <div class="column">
-                    <li id='hotel3' class="hotel3"></li>
-                    <li class="is-underlined">Satisfaction Rating:</li>
-                    <li id='quality3' class="quality3"></li>
-                </div>
-                <div class="column">
-                    <li id='hotel4' class="hotel4"></li>
-                    <li class="is-underlined">Satisfaction Rating:</li>
-                    <li id='quality4' class="quality4"></li>
-                </div>
-                <div class="column">
-                    <li id='hotel5' class="hotel5"></li>
-                    <li class="is-underlined">Satisfaction Rating:</li>
-                    <li id='quality5' class="quality5"></li>
-                </div>
-            </div>
-        </div>
-    </section>
+                <figure>
+                    <img src="/Images/logo.svg" class="img3" id="mainimg">
+                </figure>
+                <h5>Hotels Near By</h5>
+                <div id="options" class="wrapperH columns">
 
+                    <div class="column">
+                        <li id='hotel1' class="hotel"></li>
+                        <li class="is-underlined">Satisfaction Rating:</li>
+                        <li id='quality1' class="quality1"></li>
+                    </div>
+
+                    <div class="column">
+                        <li id='hotel2' class="hotel"></li>
+                        <li class="is-underlined">Satisfaction Rating:</li>
+                        <li id='quality2' class="quality2"></li>
+                    </div>
+
+                    <div class="column">
+                        <li id='hotel3' class="hotel"></li>
+                        <li class="is-underlined">Satisfaction Rating:</li>
+                        <li id='quality3' class="quality3"></li>
+                    </div>
+
+                    <div class="column">
+                        <li id='hotel4' class="hotel"></li>
+                        <li class="is-underlined">Satisfaction Rating:</li>
+                        <li id='quality4' class="quality4"></li>
+                    </div>
+
+                    <div class="column">
+                        <li id='hotel5' class="hotel"></li>
+                        <li class="is-underlined">Satisfaction Rating:</li>
+                        <li id='quality5' class="quality5"></li>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer class="footer">
+        <div class="content has-text-centered">
+        <p>
+            <strong>Insta-Travler</strong> by <a href="https://jgthms.com">TeamC0DE</a>
+        </p>
+    </footer>
 </body>
     <script src="script.js"></script>
 </html>
