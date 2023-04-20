@@ -2,8 +2,34 @@ const weatherApiKey = "9daf7471c5f84d968a520146231304"; // Replace with your act
 const unsplashApiKey = "QylNPlf1q1ZEVXUKTBc1XTe_iytPyjIo1Wweq_zg4tQ"; // Replace with your actual Unsplash API access key
 const searchInput = document.querySelector("#search-input");
 const searchButton = document.querySelector("#search-button");
-searchButton.addEventListener("click", () => {
+const mainimg = document.getElementById("mainimg");
+const cityDropdown = document.getElementById("city-dropdown");
+const savedCity = [];
+// Hotel declared variables
+const hotel1 = document.querySelector("#hotel1");
+const hotel2 = document.querySelector("#hotel2");
+const hotel3 = document.querySelector("#hotel3");
+const hotel4 = document.querySelector("#hotel4");
+const hotel5 = document.querySelector("#hotel5");
+const quality1 = document.querySelector("#quality1");
+const quality2 = document.querySelector("#quality2");
+const quality3 = document.querySelector("#quality3");
+const quality4 = document.querySelector("#quality4");
+const quality5 = document.querySelector("#quality5");
+//Weather declared variables
+const windnum = document.querySelector("#windnum")
+const tempnum = document.querySelector("#tempnum")
+const condnum = document.querySelector("#condnum")
+
+
+searchButton.addEventListener("click",  () => {
   const city = searchInput.value;
+  const searchTerm = searchInput.value;
+
+  let searchTerms = JSON.parse(localStorage.getItem("searchTerms")) || [];
+  searchTerms.push(searchTerm);
+  localStorage.setItem("searchTerms", JSON.stringify(searchTerms));
+
   if (city.trim() === "") {
     alert("Please enter a valid city name!");
     return;
@@ -14,32 +40,22 @@ searchButton.addEventListener("click", () => {
     .then(response => response.json())
     .then(weatherData => {
       // Fill in search bar with city name
+
+      windnum.innerText = weatherData.current.wind_mph;
+      condnum.innerText = weatherData.current.condition.text;
+      tempnum.innerText = weatherData.current.temp_c;
       searchInput.value = weatherData.location.name;
-      // Display weather information
-      const temperature = weatherData.current.temp_c;
-      const condition = weatherData.current.condition.text;
-      const windSpeed = weatherData.current.wind_kph;
-      const humidity = weatherData.current.humidity;
-      const weatherText = `Temperature: ${temperature} °C
-        Condition: ${condition}
-        Wind Speed: ${windSpeed} kph
-        Humidity: ${humidity}%`;
-      // Create HTML element to display weather information
-      const weatherContainer = document.createElement("div");
-      const weatherTextNode = document.createTextNode(weatherText);
-      weatherContainer.appendChild(weatherTextNode);
-      document.body.appendChild(weatherContainer);
-      // Fetch image using Unsplash API
+
       const unsplashApiUrl = `https://api.unsplash.com/photos/random?query=${city}&client_id=${unsplashApiKey}`;
       fetch(unsplashApiUrl)
         .then(response => response.json())
         .then(imageData => {
-          // Create HTML element to display image
           const imageContainer = document.createElement("div");
           const image = document.createElement("img");
           image.src = imageData.urls.regular;
-          imageContainer.appendChild(image);
-          document.body.appendChild(imageContainer);
+          console.log(image.src);
+          mainimg.src = image.src;
+
         })
         .catch(error => {
           console.error(error);
@@ -58,7 +74,6 @@ let place5 = "test"; let rating5 = "test";
 let checkin = "2023-07-22";
 let checkout = "2023-07-25";
 let placeid = "test";
-
 // get the search bar element
 const searchBar = document.querySelector('#search-bar');
 // listen for input changes on the search bar
@@ -115,16 +130,83 @@ $.ajax(hotels).done(function (response) {
   console.log(place3+" Overall Guest Rating "+rating3);
   console.log(place4+" Overall Guest Rating "+rating4);
   console.log(place5+" Overall Guest Rating "+rating5);
+  hotel1.innerText = place; hotel2.innerText = place2; hotel3.innerText = place3; hotel4.innerText = place4; hotel5.innerText = place5;
+  quality1.innerText = rating; quality2.innerText = rating2; quality3.innerText = rating3; quality4.innerText = rating4; quality5.innerText = rating5;
 });
-$.ajax(hotels).done(function (response) {
-  // Get the top 5 hotel names and ratings
-  const hotelList = response['hotels'].slice(0, 5).map(hotel => {
-    const name = hotel['name'];
-    const rating = hotel['overallGuestRating'];
-    return `${name} (Overall Guest Rating: ${rating})`;
-  });
-  // Append the hotel names and ratings to the HTML element
-  $('#hotel-list').append(`<ul><li>${hotelList.join('</li><li>')}</li></ul>`);
-});
+// $.ajax(hotels).done(function (response) {
+//   // Get the top 5 hotel names and ratings
+//   const hotelList = response['hotels'].slice(0, 5).map(hotel => {
+//     const name = hotel['name'];
+//     const rating = hotel['overallGuestRating'];
+//     return `${name} (Overall Guest Rating: ${rating})`;
+//   });
+//   // Append the hotel names and ratings to the HTML element
+//   $('#hotel-list').append(`<ul><li>${hotelList.join('</li><li>')}</li></ul>`);
+// });
 }, 3000);
 });
+function autocomplete(inp, searchTerms) {
+  var currentFocus;
+  inp.addEventListener("input", function(e) {
+    var a, b, i, val = this.value;
+    closeAllLists();
+    if (!val) { return false;}
+    currentFocus = -1;
+    a = document.createElement("DIV");
+    a.setAttribute("id", this.id + "autocomplete-list");
+    a.setAttribute("class", "autocomplete-items");
+    this.parentNode.appendChild(a);
+    for (i = 0; i < searchTerms.length; i++) {
+      if (searchTerms[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+        b = document.createElement("DIV");
+        b.innerHTML = "<strong>" + searchTerm[i].substr(0, val.length) + "</strong>";
+        b.innerHTML += searchTerms[i].substr(val.length);
+        b.innerHTML += "<input type='hidden' value='" + searchTerms[i] + "'>";
+        b.addEventListener("click", function(e) {
+          inp.value = this.getElementsByTagName("input")[0].value;
+          closeAllLists();
+        });
+        a.appendChild(b);
+      }
+    }
+  });
+  inp.addEventListener("keydown", function(e) {
+    var x = document.getElementById(this.id + "autocomplete-list");
+    if (x) x = x.getElementsByTagName("div");
+    if (e.keyCode == 40) {
+      currentFocus++;
+      addActive(x);
+    } else if (e.keyCode == 38) {
+      currentFocus--;
+      addActive(x);
+    } else if (e.keyCode == 13) {
+      e.preventDefault();
+      if (currentFocus > -1) {
+        if (x) x[currentFocus].click();
+      }
+    }
+  });
+  function addActive(x) {
+    if (!x) return false;
+    removeActive(x);
+    if (currentFocus >= x.length) currentFocus = 0;
+    if (currentFocus < 0) currentFocus = (x.length - 1);
+    x[currentFocus].classList.add("autocomplete-active");
+  }
+  function removeActive(x) {
+    for (var i = 0; i < x.length; i++) {
+      x[i].classList.remove("autocomplete-active");
+    }
+  }
+  function closeAllLists(elmnt) {
+    var x = document.getElementsByClassName("autocomplete-items");
+    for (var i = 0; i < x.length; i++) {
+      if (elmnt != x[i] && elmnt != inp) {
+        x[i].parentNode.removeChild(x[i]);
+      }
+    }
+  }
+  document.addEventListener("click", function (e) {
+    closeAllLists(e.target);
+  });
+}
