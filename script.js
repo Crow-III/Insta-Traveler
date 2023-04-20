@@ -132,11 +132,11 @@ $.ajax(hotels).done(function (response) {
   rating3 = response['hotels']['3']['overallGuestRating'];
   rating4 = response['hotels']['4']['overallGuestRating'];
   rating5 = response['hotels']['5']['overallGuestRating'];
-console.log(place+" Overall Guest Rating "+rating);
-console.log(place2+" Overall Guest Rating "+rating2);
-console.log(place3+" Overall Guest Rating "+rating3);
-console.log(place4+" Overall Guest Rating "+rating4);
-console.log(place5+" Overall Guest Rating "+rating5);
+  console.log(place+" Overall Guest Rating "+rating);
+  console.log(place2+" Overall Guest Rating "+rating2);
+  console.log(place3+" Overall Guest Rating "+rating3);
+  console.log(place4+" Overall Guest Rating "+rating4);
+  console.log(place5+" Overall Guest Rating "+rating5);
 
 });
 
